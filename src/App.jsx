@@ -1,9 +1,20 @@
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Vans from "./pages/Vans";
+import About from "./pages/About";
+import Navbar from "./components/Navbar";
+
+const App = () => {
   return (
-    <>
-      <h1 className="text-3xl">Van Life</h1>
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/vans" element={<Vans />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
