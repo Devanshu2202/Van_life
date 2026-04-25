@@ -9,12 +9,14 @@ import "./server.js";
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <div className="h-screen flex flex-col">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };

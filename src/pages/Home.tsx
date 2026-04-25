@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="bg-[url('/src/assets/image53.png')] bg-cover bg-center h-[90vh] flex items-center">
+    <div className="bg-[url('/src/assets/image53.png')] bg-cover bg-center flex-1 flex items-center">
       <div className="text-white px-6 max-w-xl">
         <h1 className="text-4xl font-bold mb-4">
           You got the travel plans, we got the travel vans.

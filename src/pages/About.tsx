@@ -5,11 +5,11 @@ const About = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white">
-      <img src={aboutImg} alt="Van Life" className="w-full h-[350px]" />
+    <div className="bg-white">  
+      <img src={aboutImg} alt="Van Life" className="w-full object-cover" />
 
       <div className="w-auto mx-auto px-14 py-10">
-        <h1 className="text-7xl font-bold mb-6">
+        <h1 className="text-5xl font-bold mb-6">
           Don’t squeeze in a sedan when you could relax in a van.
         </h1>
 
@@ -23,7 +23,7 @@ const About = () => {
           of touring the world on 4 wheels.
         </p>
 
-        <div className="bg-[#FFCC8D] p-12 rounded-lg">
+        <div className="bg-[#FFCC8D] p- rounded-lg p-6 flex flex-col items-start gap-4">
           <h2 className="text-xl font-semibold mb-2">
             Your destination is waiting. Your van is ready.
           </h2>
