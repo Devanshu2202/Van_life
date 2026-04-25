@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 type Van = {
   id: string;
@@ -50,13 +50,25 @@ const VanDetail = () => {
   }
 
   return (
-    <div className="px-6 py-10">
-      <img
-        src={van.imageUrl}
-        alt={van.name}
-        className="w-full max-w-md rounded-lg mb-6"
-      />
 
+    
+   <div className="p-6">
+  <Link
+    to="/vans"
+    className="inline-block mb-6 text-gray-700 hover:text-black font-medium"
+  >
+    ← Back to all vans
+  </Link>
+
+  <div className="flex flex-col md:flex-row gap-8 items-start">
+    
+    <img
+      src={van.imageUrl}
+      alt={van.name}
+      className="w-full md:w-1/2 rounded-lg"
+    />
+
+    <div className="md:w-1/2">
       <span className="bg-orange-500 text-white px-4 py-1 rounded">
         {van.type}
       </span>
@@ -71,6 +83,8 @@ const VanDetail = () => {
         Rent this van
       </button>
     </div>
+  </div>
+</div>
   );
 };
 

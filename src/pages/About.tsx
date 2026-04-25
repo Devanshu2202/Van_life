@@ -5,7 +5,11 @@ const About = () => {
   const navigate = useNavigate();
 
   return (
+
+    
     <div className="bg-white">  
+
+    
       <img src={aboutImg} alt="Van Life" className="w-full object-cover" />
 
       <div className="w-auto mx-auto px-14 py-10">

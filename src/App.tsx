@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 
 import "./server.js";
 import VanDetail from "./pages/VanDetails";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/vans" element={<Vans />} />
           <Route path="/about" element={<About />} />
           <Route path="/vans/:id" element={<VanDetail />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </BrowserRouter>
