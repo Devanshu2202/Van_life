@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 
 import "./server.js";
+import VanDetail from "./pages/VanDetails";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/vans" element={<Vans />} />
           <Route path="/about" element={<About />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
         </Routes>
       </div>
     </BrowserRouter>

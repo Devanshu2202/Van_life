@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 // 1. Define type for a single van
@@ -48,23 +49,25 @@ if (loading) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
         {vans.map((van) => (
-          <div key={van.id} className="overflow-hidden">
-            <img
-              src={van.imageUrl}
-              alt={van.name}
-              className="w-full h-64 object-cover rounded-xl"
-            />
+  <Link to={`/vans/${van.id}`} key={van.id}>
+    <div className="overflow-hidden">
+      <img
+        src={van.imageUrl}
+        alt={van.name}
+        className="w-full h-64 object-cover rounded-xl"
+      />
 
-            <div className="text-[#161616] flex justify-between py-2">
-              <h2 className="font-semibold text-lg">{van.name}</h2>
-              <p className="font-bold">${van.price}/day</p>
-            </div>
+      <div className="text-[#161616] flex justify-between py-2">
+        <h2 className="font-semibold text-lg">{van.name}</h2>
+        <p className="font-bold">${van.price}/day</p>
+      </div>
 
-            <span className="inline-block mt-2 bg-orange-500 text-white px-4 font-medium py-2 rounded text-sm">
-              {van.type}
-            </span>
-          </div>
-        ))}
+      <span className="inline-block mt-2 bg-orange-500 text-white px-4 font-medium py-2 rounded text-sm">
+        {van.type}
+      </span>
+    </div>
+  </Link>
+))}
       </div>
     </div>
   );
