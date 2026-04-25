@@ -4,6 +4,8 @@ import Vans from "./pages/Vans";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
 
+import "./server.js";
+
 const App = () => {
   return (
     <BrowserRouter>
