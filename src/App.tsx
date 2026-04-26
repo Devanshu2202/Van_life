@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Vans from "./pages/Vans";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import "./server.js";
 import VanDetail from "./pages/VanDetails";
@@ -15,9 +16,24 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/vans" element={<Vans />} />
+          <Route
+  path="/vans"
+  element={
+    <ProtectedRoute>
+      <Vans />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/vans/:id"
+  element={
+    <ProtectedRoute>
+      <VanDetail />
+    </ProtectedRoute>
+  }
+/>
           <Route path="/about" element={<About />} />
-          <Route path="/vans/:id" element={<VanDetail />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>

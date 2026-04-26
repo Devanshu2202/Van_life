@@ -10,12 +10,9 @@ const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // fake login (for now)
-    if (email && password) {
-      console.log("Logged in:", email);
-
-      // redirect to vans page
-      navigate("/vans");
+    if (email && password) { 
+      localStorage.setItem("isLoggedIn", "true");
+navigate("/vans");
     } else {
       alert("Please enter email and password");
     }
