@@ -9,6 +9,9 @@ const Header = () => {
 
       <nav className="flex gap-6 font-medium text-gray-700
       ">
+        <Link to="/host" className="hover:text-orange-500">
+          Host
+        </Link>
         <Link to="/about" className="hover:text-orange-500">
           About
         </Link>
