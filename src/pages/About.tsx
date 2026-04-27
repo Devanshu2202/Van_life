@@ -7,7 +7,7 @@ const About = () => {
   return (
 
     
-    <div className="bg-white">  
+    <div className="bg-[#FFF7ED]">  
 
     
       <img src={aboutImg} alt="Van Life" className="w-full object-cover" />
