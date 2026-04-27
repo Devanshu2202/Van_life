@@ -1,27 +1,35 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Vans from "./pages/Vans";
+import Vans from "./pages/Vans/Vans";
 import About from "./pages/About";
-import { Link } from "react-router-dom";
 
 import "./server.js";
-import VanDetail from "./pages/VanDetails";
-import Header from "./components/Header";
+import VanDetail from "./pages/Vans/VanDetails";
+import Layout from "./components/Layout";
+import Reviews from "./pages/Host/Reviews";
+import Income from "./pages/Host/Income";
+import Dashboard from "./pages/Host/Dashboard";
 
 const App = () => {
   return (
     <BrowserRouter>
-       <Header/>
-      <div className="h-screen flex flex-col">
+      
+       
         <Routes>
+
+          <Route element={<Layout/>} >
 
           
           <Route path="/" element={<Home />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/vans" element={<Vans />}/>
           <Route path="/vans/:id" element={<VanDetail />}/>
+          <Route path="/host" element={<Dashboard />}/>
+          <Route path="/host/income" element={<Income />}/>
+          <Route path="/host/reviews" element={<Reviews />}/>
+          </Route>
         </Routes>
-      </div>
+      
     </BrowserRouter>
   );
 };
