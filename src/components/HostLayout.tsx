@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const HostLayout = ()=>{
     return (
@@ -6,15 +6,51 @@ const HostLayout = ()=>{
 
      <nav className="flex gap-6 font-medium text-gray-700
       ">
-        <Link to="/host" className="hover:text-orange-500">
-          Dashboard
-        </Link>
-        <Link to="/host/income" className="hover:text-orange-500">
-          Income
-        </Link>
-        <Link to="/host/reviews" className="hover:text-orange-500">
-          Reviews
-        </Link>
+        <NavLink
+  to="/host" end={true}
+  className={({ isActive }) =>
+    isActive
+      ? "text-orange-500 font-semibold underline underline-offset-4"
+      : "text-gray-700 hover:text-orange-500 hover:underline underline-offset-4"
+  }
+>
+  Dashboard
+</NavLink>
+        <NavLink
+  to="income"
+  className={({ isActive }) =>
+    isActive
+      ? "text-orange-500 font-semibold underline underline-offset-4"
+      : "text-gray-700 hover:text-orange-500 hover:underline underline-offset-4"
+  }
+>
+  Income
+</NavLink>
+ <NavLink
+  to="/host/vans"
+  className={({ isActive }) =>
+    isActive
+      ? "text-orange-500 font-semibold underline underline-offset-4"
+      : "text-gray-700 hover:text-orange-500 hover:underline underline-offset-4"
+  }
+>
+  HostVans
+</NavLink>
+
+
+
+
+
+<NavLink
+  to="reviews"
+  className={({ isActive }) =>
+    isActive
+      ? "text-orange-500 font-semibold underline underline-offset-4"
+      : "text-gray-700 hover:text-orange-500 hover:underline underline-offset-4"
+  }
+>
+  Reviews
+</NavLink>
       </nav>
 <Outlet />  
 

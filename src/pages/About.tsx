@@ -1,4 +1,4 @@
-import aboutImg from "../assets/image54.png";
+import aboutImg from "../assets/VanWallpaper.png";
 import { useNavigate } from "react-router-dom";
 
 const About = () => {
