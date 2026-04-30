@@ -12,19 +12,19 @@ type Van = {
 
 const HostDetailVans = () => {
   const { id } = useParams();
-   const [van, setVan] = useState<Van | null>(null);
+   const [currentVan, setcurrentVan] = useState<Van | null>(null);
 
   useEffect(() => {
     const fetchVan = async () => {
       const res = await fetch(`/api/host/vans/${id}`);
       const data = await res.json();
-      setVan(data.vans); // based on your API
+      setcurrentVan(data.vans); // based on your API
     };
 
     fetchVan();
   }, [id]);
 
-  if (!van) return <h2>Loading...</h2>;
+  if (!currentVan) return <h2>Loading...</h2>;
 
   return (
     <div className="p-6">
@@ -40,24 +40,24 @@ const HostDetailVans = () => {
         {/* Top Section */}
         <div className="flex gap-6 items-center">
           <img
-            src={van.imageUrl}
+            src={currentVan.imageUrl}
             className="w-32 h-32 rounded-md object-cover"
           />
 
           <div>
             {/* Type Badge */}
             <span className="bg-orange-400 text-white text-xs px-3 py-1 rounded">
-              {van.type}
+              {currentVan.type}
             </span>
 
             {/* Name */}
             <h2 className="text-2xl font-bold mt-2">
-              {van.name}
+              {currentVan.name}
             </h2>
 
             {/* Price */}
             <p className="text-gray-700">
-              <span className="font-semibold">${van.price}</span>/day
+              <span className="font-semibold">${currentVan.price}</span>/day
             </p>
           </div>
         </div>
@@ -95,7 +95,7 @@ const HostDetailVans = () => {
 
         {/* Content */}
         <div className="mt-4">
-          <Outlet context={{ van }} />
+          <Outlet context={currentVan } />
         </div>
       </div>
     </div>
