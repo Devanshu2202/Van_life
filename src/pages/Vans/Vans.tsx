@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 
-// 1. Define type for a single van
 type Van = {
   id: string;
   name: string;
@@ -22,7 +21,7 @@ const Vans = () => {
   useEffect(() => {
   const fetchVans = async () => {
     try {
-      setLoading(true); // start loading
+      setLoading(true); 
 
       const res = await fetch("/api/vans");
       const data = await res.json();
@@ -31,7 +30,7 @@ const Vans = () => {
     } catch (error) {
       console.error("Error fetching vans:", error);
     } finally {
-      setLoading(false); // stop loading
+      setLoading(false); 
     }
   };
 
