@@ -64,7 +64,7 @@ const VanDetail = () => {
   <Link
   to={`..${search}`}
   relative="path"
-  className="inline-block mb-6 text-gray-700 hover:text-black font-medium"
+ className="inline-block mb-6 text-gray-600 hover:text-black hover:underline font-medium"
 >
   ← {filterText}
 </Link>
