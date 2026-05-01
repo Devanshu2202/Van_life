@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 type Van = {
   id: string;
@@ -18,6 +19,7 @@ const VanDetail = () => {
 
   
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchVan = async () => {
@@ -25,7 +27,6 @@ const VanDetail = () => {
         const res = await fetch(`/api/vans/${id}`);
         const data = await res.json();
 
-        console.log("data",data.vans.name);
      
         
         setVan(data.vans);
@@ -54,11 +55,12 @@ const VanDetail = () => {
     
    <div className="p-6">
   <Link
-    to="/vans"
-    className="inline-block mb-6 text-gray-700 hover:text-black font-medium"
-  >
-    ← Back to all vans
-  </Link>
+  to={`..${location.state?.search || ""}`}
+  relative="path"
+  className="inline-block mb-6 text-gray-700 hover:text-black font-medium"
+>
+  ← Back to all vans
+</Link>
 
   <div className="flex flex-col md:flex-row gap-8 items-start">
     

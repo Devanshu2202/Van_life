@@ -11,10 +11,11 @@ type Van = {
 };
 
 const Vans = () => {
-  // 2. Add type to state
   const [vans, setVans] = useState<Van[]>([]);
   const [loading, setLoading] = useState(true);
    const [searchParams, setSearchParams] = useSearchParams();
+
+   console.log("Search Params:", searchParams.toString()); 
 
    const typeFilter = searchParams.get("type");
 
@@ -50,6 +51,8 @@ const filteredVans = typeFilter
   ? vans.filter(van => van.type === typeFilter)
   : vans;
 
+  console.log("Filtered Vans:", filteredVans);
+
 
  return (
   <div className="px-6 py-10 bg-[#FFF7ED]">
@@ -57,7 +60,6 @@ const filteredVans = typeFilter
       Explore our van options
     </h1>
 
-    {/* FILTER BUTTONS */}
     <div className="flex gap-4 mb-6">
       <button
         onClick={() => setSearchParams({ type: "simple" })}
@@ -92,18 +94,16 @@ const filteredVans = typeFilter
         Rugged
       </button>
 
-      <button
-        onClick={() => setSearchParams({})}
-        className="px-4 py-2 text-gray-600 underline"
-      >
-        Clear
-      </button>
+      {typeFilter && (
+  <button onClick={() => setSearchParams({})}>
+    Clear filters
+  </button>
+)}
     </div>
 
-    {/* ✅ THIS WAS MISSING */}
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
       {filteredVans.map((van) => (
-        <Link to={`/vans/${van.id}`} key={van.id}>
+        <Link to={`/vans/${van.id}`} key={van.id}  state={{ search: `?${searchParams.toString()}` }}>
           <div className="overflow-hidden">
             <img
               src={van.imageUrl}
