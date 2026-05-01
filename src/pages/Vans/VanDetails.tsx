@@ -20,6 +20,13 @@ const VanDetail = () => {
   
   const [loading, setLoading] = useState(true);
   const location = useLocation();
+  const search = location.state?.search || "";
+
+  const type = new URLSearchParams(search).get("type");
+
+  const filterText = type
+  ? `Back to ${type} vans`
+  : "Back to all vans";
 
   useEffect(() => {
     const fetchVan = async () => {
@@ -55,11 +62,11 @@ const VanDetail = () => {
     
    <div className="p-6">
   <Link
-  to={`..${location.state?.search || ""}`}
+  to={`..${search}`}
   relative="path"
   className="inline-block mb-6 text-gray-700 hover:text-black font-medium"
 >
-  ← Back to all vans
+  ← {filterText}
 </Link>
 
   <div className="flex flex-col md:flex-row gap-8 items-start">
